@@ -9,15 +9,19 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Afacad:wght@400;700&family=Alef:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Afacad:wght@400;700&family=Alef:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
-        
-        body, html {
+        body,
+        html {
             min-height: 100vh;
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             background-color: #121212;
             font-family: 'Alef', sans-serif;
             color: white;
@@ -26,12 +30,12 @@
             flex-direction: column;
         }
 
-        h1 { 
-            font-family: 'Aclonica', sans-serif; 
-            color: white; 
-            margin: 0 0 10px 0; 
-            font-size: 3rem; 
-            text-align: center; 
+        h1 {
+            font-family: 'Aclonica', sans-serif;
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 3rem;
+            text-align: center;
             width: 100%;
         }
 
@@ -43,57 +47,127 @@
             margin-bottom: 50px;
         }
 
-        p { color: white; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px; font-family: 'Alef', sans-serif; text-align: justify; }
-        
-        ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; line-height: 1.6; }
-        li { margin-bottom: 10px; }
+        p {
+            color: white;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-family: 'Alef', sans-serif;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
 
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined' !important;
-            font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
         }
 
         .pie-pagina {
-            background-color: #0d0d0d; 
+            background-color: #0d0d0d;
             border-top: 4px solid #FF0080;
-            color: white; 
+            color: white;
             font-family: 'Alef', sans-serif;
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
             padding: 30px 10%;
             margin-top: auto;
         }
 
-        .identidad-pie { display: flex; align-items: center; gap: 15px; }
-        .avatar-pie { width: 70px; height: auto; border-radius: 0; object-fit: contain; }
-        .info-pie h4 { margin: 0; font-size: 1.2rem; font-weight: bold; }
-        .info-pie span { color: #cccccc; font-size: 0.95rem; }
-        
+        .identidad-pie {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-        .contacto-pie { display: flex; flex-direction: row; gap: 40px; } 
-        .item-contacto { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
-        .item-contacto .material-symbols-outlined { color: white; font-size: 20px !important; }
+        .avatar-pie {
+            width: 70px;
+            height: auto;
+            border-radius: 0;
+            object-fit: contain;
+        }
+
+        .info-pie h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .info-pie span {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+
+        .contacto-pie {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .item-contacto {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .item-contacto .material-symbols-outlined {
+            color: white;
+            font-size: 20px !important;
+        }
 
         .barra-nav {
-            position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
-            background: #1e1e1e; padding: 5px 10px; border-radius: 50px;
-            display: flex; align-items: center; gap: 5px; z-index: 1000;
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e1e1e;
+            padding: 5px 10px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .barra-nav a {
-            color: #cccccc; text-decoration: none; font-size: 14px;
-            padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 8px; transition: 0.3s;
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
             font-family: 'Alef', sans-serif;
         }
 
         @media (min-width: 1200px) {
             .barra-nav a.activo {
-                background-color: #FF0080; color: white; font-weight: bold;
+                background-color: #FF0080;
+                color: white;
+                font-weight: bold;
                 box-shadow: 0 2px 10px rgba(255, 0, 128, 0.4);
             }
-            .barra-nav a:not(.activo):hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+
+            .barra-nav a:not(.activo):hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
         }
 
         .seccion-proyectos {
@@ -130,21 +204,38 @@
         .grid-ilustracion {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto; 
+            grid-template-rows: auto auto;
             gap: 30px 60px;
             width: 100%;
             margin-top: 20px;
-            align-items: start; 
+            align-items: start;
         }
 
         .columna-ilustracion {
-            display: contents; 
+            display: contents;
         }
 
-        .columna-ilustracion:nth-child(1) .contenedor { grid-column: 1; grid-row: 1; margin: 0 !important; }
-        .columna-ilustracion:nth-child(2) .contenedor { grid-column: 2; grid-row: 1; margin: 0 !important; }
-        .columna-ilustracion:nth-child(1) p { grid-column: 1; grid-row: 2; }
-        .columna-ilustracion:nth-child(2) p { grid-column: 2; grid-row: 2; }
+        .columna-ilustracion:nth-child(1) .contenedor {
+            grid-column: 1;
+            grid-row: 1;
+            margin: 0 !important;
+        }
+
+        .columna-ilustracion:nth-child(2) .contenedor {
+            grid-column: 2;
+            grid-row: 1;
+            margin: 0 !important;
+        }
+
+        .columna-ilustracion:nth-child(1) p {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .columna-ilustracion:nth-child(2) p {
+            grid-column: 2;
+            grid-row: 2;
+        }
 
         .grid-modelado {
             display: grid;
@@ -165,17 +256,18 @@
             width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             display: block;
         }
+
         .contenedor {
             width: 100%;
             position: relative;
             margin: auto;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            aspect-ratio: 1 / 1; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 1 / 1;
             background-color: #000;
         }
 
@@ -184,23 +276,24 @@
             width: 100%;
         }
 
-        .el_Slide { 
-            display: none; 
-            width: 100%; 
-            height: 100%; 
+        .el_Slide {
+            display: none;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .el_Slide img {
             vertical-align: middle;
             width: 100%;
             height: 100%;
-            object-fit: contain; 
+            object-fit: contain;
         }
 
-        .izq, .der {
+        .izq,
+        .der {
             cursor: pointer;
             position: absolute;
             top: 50%;
@@ -213,7 +306,7 @@
             transition: 0.6s ease;
             border-radius: 0 3px 3px 0;
             user-select: none;
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0, 0, 0, 0.3);
             text-decoration: none;
             z-index: 10;
         }
@@ -223,7 +316,8 @@
             border-radius: 3px 0 0 3px;
         }
 
-        .izq:hover, .der:hover {
+        .izq:hover,
+        .der:hover {
             background-color: rgba(255, 0, 128, 0.8);
         }
 
@@ -235,7 +329,7 @@
             bottom: 0;
             width: 100%;
             text-align: center;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .animar {
@@ -244,46 +338,109 @@
         }
 
         @keyframes opacidad {
-            from {opacity: .4} 
-            to {opacity: 1}
-        }
-        @media (min-width: 768px) and (max-width: 1199px) {
-            
-            .barra-nav {
-                top: auto; bottom: -2px; left: 0; width: 100%; transform: none;
-                background: #181818; border-radius: 25px 25px 0 0;
-                justify-content: space-around; align-items: flex-end;
-                padding: 15px 0 20px; box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+            from {
+                opacity: .4
             }
-            .barra-nav a { flex-direction: column; padding: 0; font-size: 10px; color: #888; flex: 1; background: none !important; box-shadow: none !important; }
-            .link-acerca { order: 1; }
-            .link-habilidades { order: 2; }
-            .link-inicio { order: 3; }
-            .link-proyectos { order: 4; }
-            .link-contacto { order: 5; }
-            
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+
+            .barra-nav {
+                top: auto;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                transform: none;
+                background: #181818;
+                border-radius: 25px 25px 0 0;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding: 15px 0 20px;
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .barra-nav a {
+                flex-direction: column;
+                padding: 0;
+                font-size: 10px;
+                color: #888;
+                flex: 1;
+                background: none !important;
+                box-shadow: none !important;
+            }
+
+            .link-acerca {
+                order: 1;
+            }
+
+            .link-habilidades {
+                order: 2;
+            }
+
+            .link-inicio {
+                order: 3;
+            }
+
+            .link-proyectos {
+                order: 4;
+            }
+
+            .link-contacto {
+                order: 5;
+            }
+
             .link-inicio .material-symbols-outlined {
-                background: white; color: black !important; width: 55px; height: 55px; border-radius: 50%;
-                display: flex; align-items: center; justify-content: center; font-size: 28px;
-                margin: 0 auto; transform: translateY(-35px); border: 6px solid #121212;
+                background: white;
+                color: black !important;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                margin: 0 auto;
+                transform: translateY(-35px);
+                border: 6px solid #121212;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
             }
-            .link-inicio span:not(.material-symbols-outlined) { margin-top: -28px; font-weight: bold; color: white; }
-            .barra-nav a.activo:not(.link-inicio) { color: #FF0080; }
-            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined { color: #FF0080; }
-            .barra-nav a:not(.activo) { color: #aaa; }
-            .barra-nav a:not(.activo) .material-symbols-outlined { color: white; }
+
+            .link-inicio span:not(.material-symbols-outlined) {
+                margin-top: -28px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) {
+                color: #FF0080;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined {
+                color: #FF0080;
+            }
+
+            .barra-nav a:not(.activo) {
+                color: #aaa;
+            }
+
+            .barra-nav a:not(.activo) .material-symbols-outlined {
+                color: white;
+            }
 
 
-            .pie-pagina { 
-                padding-bottom: 150px !important; 
+            .pie-pagina {
+                padding-bottom: 150px !important;
                 flex-direction: row !important;
                 justify-content: space-between !important;
                 align-items: flex-start !important;
                 padding-left: 5% !important;
                 padding-right: 5% !important;
             }
-        
+
             .contacto-pie {
                 flex-direction: column !important;
                 align-items: flex-start !important;
@@ -294,20 +451,32 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 30px;
             }
-            .columna-fotos:first-child { order: 1; }
-            .columna-fotos:last-child { order: 2; }
-            .columna-texto { 
-                order: 3; 
-                grid-column: 1 / -1; 
-                text-align: center; 
+
+            .columna-fotos:first-child {
+                order: 1;
             }
-            .columna-texto ul { text-align: left; display: inline-block; }
+
+            .columna-fotos:last-child {
+                order: 2;
+            }
+
+            .columna-texto {
+                order: 3;
+                grid-column: 1 / -1;
+                text-align: center;
+            }
+
+            .columna-texto ul {
+                text-align: left;
+                display: inline-block;
+            }
 
             .grid-ilustracion {
                 display: flex;
                 flex-direction: column;
                 gap: 50px;
             }
+
             .columna-ilustracion {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -318,97 +487,233 @@
             .columna-ilustracion:nth-child(1) .contenedor,
             .columna-ilustracion:nth-child(2) .contenedor,
             .columna-ilustracion:nth-child(1) p,
-            .columna-ilustracion:nth-child(2) p { grid-column: auto; grid-row: auto; }
-            
-            .columna-ilustracion .contenedor { margin: 0 !important; }
+            .columna-ilustracion:nth-child(2) p {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .columna-ilustracion .contenedor {
+                margin: 0 !important;
+            }
         }
 
 
         @media (max-width: 767px) {
 
-            .grid-fotografia { display: flex; flex-direction: column; gap: 40px; }
-            .columna-fotos:first-child { order: 1; }
-            .columna-fotos:last-child { order: 2; }
-            .columna-texto { order: 3; }
+            .grid-fotografia {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
 
-            .grid-editorial-texto { grid-template-columns: 1fr !important; gap: 20px; }
+            .columna-fotos:first-child {
+                order: 1;
+            }
 
-            .grid-ilustracion { display: flex; flex-direction: column; gap: 40px; }
+            .columna-fotos:last-child {
+                order: 2;
+            }
+
+            .columna-texto {
+                order: 3;
+            }
+
+            .grid-editorial-texto {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .grid-ilustracion {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
 
             .columna-ilustracion:nth-child(1) .contenedor,
             .columna-ilustracion:nth-child(2) .contenedor,
             .columna-ilustracion:nth-child(1) p,
-            .columna-ilustracion:nth-child(2) p { grid-column: auto; grid-row: auto; }
+            .columna-ilustracion:nth-child(2) p {
+                grid-column: auto;
+                grid-row: auto;
+            }
 
-            .columna-ilustracion { display: contents; }
-            .columna-ilustracion:nth-child(1) .contenedor { order: 1; margin-bottom: 20px !important; }
-            .columna-ilustracion:nth-child(2) .contenedor { order: 2; }
-            .columna-ilustracion:nth-child(1) p { order: 3; }
-            .columna-ilustracion:nth-child(2) p { order: 4; }
+            .columna-ilustracion {
+                display: contents;
+            }
 
-            .grid-modelado { display: flex; flex-direction: column; gap: 40px; }
-            .columna-modelado { display: flex; flex-direction: column; }
-            .columna-modelado:last-child { flex-direction: column-reverse; }
+            .columna-ilustracion:nth-child(1) .contenedor {
+                order: 1;
+                margin-bottom: 20px !important;
+            }
+
+            .columna-ilustracion:nth-child(2) .contenedor {
+                order: 2;
+            }
+
+            .columna-ilustracion:nth-child(1) p {
+                order: 3;
+            }
+
+            .columna-ilustracion:nth-child(2) p {
+                order: 4;
+            }
+
+            .grid-modelado {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .columna-modelado {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .columna-modelado:last-child {
+                flex-direction: column-reverse;
+            }
 
             .barra-nav {
-                top: auto; bottom: -2px; left: 0; width: 100%; transform: none;
-                background: #181818; border-radius: 25px 25px 0 0;
-                justify-content: space-around; align-items: flex-end;
-                padding: 15px 0 20px; box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+                top: auto;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                transform: none;
+                background: #181818;
+                border-radius: 25px 25px 0 0;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding: 15px 0 20px;
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
             }
-            .barra-nav a { flex-direction: column; padding: 0; font-size: 10px; color: #888; flex: 1; background: none !important; box-shadow: none !important; }
-            .link-acerca { order: 1; }
-            .link-habilidades { order: 2; }
-            .link-inicio { order: 3; }
-            .link-proyectos { order: 4; }
-            .link-contacto { order: 5; }
+
+            .barra-nav a {
+                flex-direction: column;
+                padding: 0;
+                font-size: 10px;
+                color: #888;
+                flex: 1;
+                background: none !important;
+                box-shadow: none !important;
+            }
+
+            .link-acerca {
+                order: 1;
+            }
+
+            .link-habilidades {
+                order: 2;
+            }
+
+            .link-inicio {
+                order: 3;
+            }
+
+            .link-proyectos {
+                order: 4;
+            }
+
+            .link-contacto {
+                order: 5;
+            }
+
             .link-inicio .material-symbols-outlined {
-                background: white; color: black !important; width: 55px; height: 55px; border-radius: 50%;
-                display: flex; align-items: center; justify-content: center; font-size: 28px;
-                margin: 0 auto; transform: translateY(-35px); border: 6px solid #121212;
+                background: white;
+                color: black !important;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                margin: 0 auto;
+                transform: translateY(-35px);
+                border: 6px solid #121212;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
             }
-            .link-inicio span:not(.material-symbols-outlined) { margin-top: -28px; font-weight: bold; color: white; }
-            .barra-nav a.activo:not(.link-inicio) { color: #FF0080; }
-            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined { color: #FF0080; }
-            .barra-nav a:not(.activo) { color: #aaa; }
-            .barra-nav a:not(.activo) .material-symbols-outlined { color: white; }
 
-            
-            .pie-pagina { 
-                flex-direction: row; 
-                justify-content: space-between; 
-                padding: 15px 3%; 
-                padding-bottom: 150px !important; 
+            .link-inicio span:not(.material-symbols-outlined) {
+                margin-top: -28px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) {
+                color: #FF0080;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined {
+                color: #FF0080;
+            }
+
+            .barra-nav a:not(.activo) {
+                color: #aaa;
+            }
+
+            .barra-nav a:not(.activo) .material-symbols-outlined {
+                color: white;
+            }
+
+
+            .pie-pagina {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 15px 3%;
+                padding-bottom: 150px !important;
                 align-items: flex-start;
             }
-            .identidad-pie { gap: 8px; }
-            .avatar-pie { width: 45px; }
-            .info-pie h4 { font-size: 0.9rem; margin-bottom: 2px; }
-            .info-pie span { font-size: 0.7rem; }
-            
-            
-            .contacto-pie { 
-                flex-direction: column !important; 
-                gap: 5px; 
-                align-items: flex-start !important; 
+
+            .identidad-pie {
+                gap: 8px;
+            }
+
+            .avatar-pie {
+                width: 45px;
+            }
+
+            .info-pie h4 {
+                font-size: 0.9rem;
+                margin-bottom: 2px;
+            }
+
+            .info-pie span {
+                font-size: 0.7rem;
+            }
+
+
+            .contacto-pie {
+                flex-direction: column !important;
+                gap: 5px;
+                align-items: flex-start !important;
                 text-align: left;
             }
-            .item-contacto { font-size: 0.7rem; white-space: nowrap; }
-            .item-contacto .material-symbols-outlined { font-size: 16px !important; }
-        }
 
+            .item-contacto {
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+
+            .item-contacto .material-symbols-outlined {
+                font-size: 16px !important;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <nav class="barra-nav notranslate">
-        <a href="index.html" class="link-inicio"><span class="material-symbols-outlined">home</span><span>Inicio</span></a>
-        <a href="acerca-de.html" class="link-acerca"><span class="material-symbols-outlined">person</span><span>Acerca de mi</span></a>
-        <a href="habilidades.html" class="link-habilidades"><span class="material-symbols-outlined">link</span><span>Habilidades</span></a>
-        <a href="#" class="activo link-proyectos"><span class="material-symbols-outlined">folder_open</span><span>Proyectos</span></a>
-        <a href="contacto.html" class="link-contacto"><span class="material-symbols-outlined">mail</span><span>Contacto</span></a>
+        <a href="index.html" class="link-inicio"><span
+                class="material-symbols-outlined">home</span><span>Inicio</span></a>
+        <a href="acerca-de.html" class="link-acerca"><span class="material-symbols-outlined">person</span><span>Acerca
+                de mi</span></a>
+        <a href="habilidades.html" class="link-habilidades"><span
+                class="material-symbols-outlined">link</span><span>Habilidades</span></a>
+        <a href="#" class="activo link-proyectos"><span
+                class="material-symbols-outlined">folder_open</span><span>Proyectos</span></a>
+        <a href="contacto.html" class="link-contacto"><span
+                class="material-symbols-outlined">mail</span><span>Contacto</span></a>
     </nav>
 
     <section class="seccion-proyectos">
@@ -418,51 +723,98 @@
         <div class="grid-fotografia">
             <div class="columna-fotos">
                 <div class="contenedor wow animate__animated animate__fadeInLeft">
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 1.jpeg" alt="Modelo 1"><div class="texto">Modelo 1</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 2.jpeg" alt="Modelo 2"><div class="texto">Modelo 2</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 3.jpeg" alt="Modelo 3"><div class="texto">Modelo 3</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 4.jpeg" alt="Modelo 4"><div class="texto">Modelo 4</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 5.jpeg" alt="Modelo 5"><div class="texto">Modelo 5</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 6.jpeg" alt="Modelo 6"><div class="texto">Modelo 6</div></div>
-                    <div class="el_Slide modelo animar"><img src="./images/Modelo 7.jpeg" alt="Modelo 7"><div class="texto">Modelo 7</div></div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 1.jpeg" alt="Modelo 1">
+                        <div class="texto">Modelo 1</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 2.jpeg" alt="Modelo 2">
+                        <div class="texto">Modelo 2</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 3.jpeg" alt="Modelo 3">
+                        <div class="texto">Modelo 3</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 4.jpeg" alt="Modelo 4">
+                        <div class="texto">Modelo 4</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 5.jpeg" alt="Modelo 5">
+                        <div class="texto">Modelo 5</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 6.jpeg" alt="Modelo 6">
+                        <div class="texto">Modelo 6</div>
+                    </div>
+                    <div class="el_Slide modelo animar"><img src="./images/Modelo 7.jpeg" alt="Modelo 7">
+                        <div class="texto">Modelo 7</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 0)">❮</a><a class="der" onclick="plusSlides(1, 0)">❯</a>
                 </div>
                 <div class="contenedor wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s">
-                    <div class="el_Slide fauna animar"><img src="./images/Fauna 1.jpeg" alt="Fauna 1"><div class="texto">Fauna 1</div></div>
-                    <div class="el_Slide fauna animar"><img src="./images/Fauna 2.jpeg" alt="Fauna 2"><div class="texto">Fauna 2</div></div>
-                    <div class="el_Slide fauna animar"><img src="./images/Fauna 3.jpeg" alt="Fauna 3"><div class="texto">Fauna 3</div></div>
-                    <div class="el_Slide fauna animar"><img src="./images/Fauna 4.jpeg" alt="Fauna 4"><div class="texto">Fauna 4</div></div>
-                    <div class="el_Slide fauna animar"><img src="./images/Fauna 5.jpeg" alt="Fauna 5"><div class="texto">Fauna 5</div></div>
+                    <div class="el_Slide fauna animar"><img src="./images/Fauna 1.jpeg" alt="Fauna 1">
+                        <div class="texto">Fauna 1</div>
+                    </div>
+                    <div class="el_Slide fauna animar"><img src="./images/Fauna 2.jpeg" alt="Fauna 2">
+                        <div class="texto">Fauna 2</div>
+                    </div>
+                    <div class="el_Slide fauna animar"><img src="./images/Fauna 3.jpeg" alt="Fauna 3">
+                        <div class="texto">Fauna 3</div>
+                    </div>
+                    <div class="el_Slide fauna animar"><img src="./images/Fauna 4.jpeg" alt="Fauna 4">
+                        <div class="texto">Fauna 4</div>
+                    </div>
+                    <div class="el_Slide fauna animar"><img src="./images/Fauna 5.jpeg" alt="Fauna 5">
+                        <div class="texto">Fauna 5</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 2)">❮</a><a class="der" onclick="plusSlides(1, 2)">❯</a>
                 </div>
             </div>
 
             <div class="columna-texto wow animate__animated animate__fadeInUp">
-                <p>La fotografía es para mí una manera de detener el tiempo y darle voz a los detalles que muchas veces pasan desapercibidos. Cada imagen es una oportunidad de narrar una historia y transmitir emociones que conecten con quienes la observan.</p>
+                <p>La fotografía es para mí una manera de detener el tiempo y darle voz a los detalles que muchas veces
+                    pasan desapercibidos. Cada imagen es una oportunidad de narrar una historia y transmitir emociones
+                    que conecten con quienes la observan.</p>
                 <ul>
                     <li>En la categoría de modelo, busco resaltar la esencia y personalidad de cada persona.</li><br>
                     <li>En la gastronómica, me concentro en los detalles que despiertan los sentidos.</li><br>
                     <li>En la fauna, muestro la belleza y singularidad de los animales.</li><br>
                     <li>En la flora, destaco la delicadeza y fuerza de la naturaleza.</li>
                 </ul>
-                <p>Más allá de la imagen, lo importante es aprender a reconocer la belleza en lo cotidiano y compartirla para que otros también puedan descubrirla.</p>
+                <p>Más allá de la imagen, lo importante es aprender a reconocer la belleza en lo cotidiano y compartirla
+                    para que otros también puedan descubrirla.</p>
             </div>
 
             <div class="columna-fotos">
                 <div class="contenedor wow animate__animated animate__fadeInRight">
-                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 1.jpeg" alt="Comida 1"><div class="texto">Gastronomía 1</div></div>
-                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 2.jpeg" alt="Comida 2"><div class="texto">Gastronomía 2</div></div>
-                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 3.jpeg" alt="Comida 3"><div class="texto">Gastronomía 3</div></div>
-                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 4.jpeg" alt="Comida 4"><div class="texto">Gastronomía 4</div></div>
-                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 5.jpeg" alt="Comida 4"><div class="texto">Gastronomía 5</div></div>
+                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 1.jpeg" alt="Comida 1">
+                        <div class="texto">Gastronomía 1</div>
+                    </div>
+                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 2.jpeg" alt="Comida 2">
+                        <div class="texto">Gastronomía 2</div>
+                    </div>
+                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 3.jpeg" alt="Comida 3">
+                        <div class="texto">Gastronomía 3</div>
+                    </div>
+                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 4.jpeg" alt="Comida 4">
+                        <div class="texto">Gastronomía 4</div>
+                    </div>
+                    <div class="el_Slide comida animar"><img src="./images/Gastronomia 5.jpeg" alt="Comida 4">
+                        <div class="texto">Gastronomía 5</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 1)">❮</a><a class="der" onclick="plusSlides(1, 1)">❯</a>
                 </div>
                 <div class="contenedor wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
-                    <div class="el_Slide flora animar"><img src="./images/Flora 1.jpeg" alt="Flora 1"><div class="texto">Flora 1</div></div>
-                    <div class="el_Slide flora animar"><img src="./images/Flora 2.jpeg" alt="Flora 2"><div class="texto">Flora 2</div></div>
-                    <div class="el_Slide flora animar"><img src="./images/Flora 3.jpeg" alt="Flora 3"><div class="texto">Flora 3</div></div>
-                    <div class="el_Slide flora animar"><img src="./images/Flora 4.jpeg" alt="Flora 4"><div class="texto">Flora 4</div></div>
-                    <div class="el_Slide flora animar"><img src="./images/Flora 5.jpeg" alt="Flora 5"><div class="texto">Flora 5</div></div>
+                    <div class="el_Slide flora animar"><img src="./images/Flora 1.jpeg" alt="Flora 1">
+                        <div class="texto">Flora 1</div>
+                    </div>
+                    <div class="el_Slide flora animar"><img src="./images/Flora 2.jpeg" alt="Flora 2">
+                        <div class="texto">Flora 2</div>
+                    </div>
+                    <div class="el_Slide flora animar"><img src="./images/Flora 3.jpeg" alt="Flora 3">
+                        <div class="texto">Flora 3</div>
+                    </div>
+                    <div class="el_Slide flora animar"><img src="./images/Flora 4.jpeg" alt="Flora 4">
+                        <div class="texto">Flora 4</div>
+                    </div>
+                    <div class="el_Slide flora animar"><img src="./images/Flora 5.jpeg" alt="Flora 5">
+                        <div class="texto">Flora 5</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 3)">❮</a><a class="der" onclick="plusSlides(1, 3)">❯</a>
                 </div>
             </div>
@@ -472,15 +824,28 @@
         <hr class="wow animate__animated animate__fadeInLeft">
 
         <div class="contenedor editorial-wide wow animate__animated animate__fadeInUp">
-            <div class="el_Slide editorial animar"><img src="./images/Editorial 1.jpeg" alt="Editorial 1"><div class="texto">Editorial 1</div></div>
-            <div class="el_Slide editorial animar"><img src="./images/Editorial 2.jpeg" alt="Editorial 2"><div class="texto">Editorial 2</div></div>
-            <div class="el_Slide editorial animar"><img src="./images/Editorial 3.jpeg" alt="Editorial 3"><div class="texto">Editorial 3</div></div>
+            <div class="el_Slide editorial animar"><img src="./images/Editorial 1.jpeg" alt="Editorial 1">
+                <div class="texto">Editorial 1</div>
+            </div>
+            <div class="el_Slide editorial animar"><img src="./images/Editorial 2.jpeg" alt="Editorial 2">
+                <div class="texto">Editorial 2</div>
+            </div>
+            <div class="el_Slide editorial animar"><img src="./images/Editorial 3.jpeg" alt="Editorial 3">
+                <div class="texto">Editorial 3</div>
+            </div>
             <a class="izq" onclick="plusSlides(-1, 4)">❮</a><a class="der" onclick="plusSlides(1, 4)">❯</a>
         </div>
 
-        <div class="grid-editorial-texto wow animate__animated animate__fadeInUp" data-wow-delay="0.2s" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; width: 100%;">
-            <p>En esta sección se reúnen piezas editoriales que exploran el universo visual y narrativo detrás de Billie Eilish, una figura que ha transformado la música contemporánea y la cultura juvenil. Cada portada y guarda ha sido diseñada con intención, cuidando no solo la estética sino también el mensaje que acompaña al contenido del libro.</p>
-            <p>El trabajo editorial aquí presentado busca dialogar con la sensibilidad de Billie: su fuerza creativa, su vulnerabilidad convertida en arte, y su capacidad de conectar con millones a través de una voz auténtica. Las composiciones gráficas no solo enmarcan su historia, sino que la amplifican, generando una experiencia visual que acompaña la lectura y la transforma en algo más íntimo y envolvente.</p>
+        <div class="grid-editorial-texto wow animate__animated animate__fadeInUp" data-wow-delay="0.2s"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; width: 100%;">
+            <p>En esta sección se reúnen piezas editoriales que exploran el universo visual y narrativo detrás de Billie
+                Eilish, una figura que ha transformado la música contemporánea y la cultura juvenil. Cada portada y
+                guarda ha sido diseñada con intención, cuidando no solo la estética sino también el mensaje que acompaña
+                al contenido del libro.</p>
+            <p>El trabajo editorial aquí presentado busca dialogar con la sensibilidad de Billie: su fuerza creativa, su
+                vulnerabilidad convertida en arte, y su capacidad de conectar con millones a través de una voz
+                auténtica. Las composiciones gráficas no solo enmarcan su historia, sino que la amplifican, generando
+                una experiencia visual que acompaña la lectura y la transforma en algo más íntimo y envolvente.</p>
         </div>
 
         <h1 class="wow animate__animated animate__fadeInDown" style="margin-top: 120px;">Ilustración</h1>
@@ -489,49 +854,125 @@
         <div class="grid-ilustracion">
             <div class="columna-ilustracion">
                 <div class="contenedor wow animate__animated animate__fadeInLeft">
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 1.jpeg" alt="Ilustracion 1"><div class="texto">Ilustración 1</div></div>
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 2.jpeg" alt="Ilustracion 2"><div class="texto">Ilustración 2</div></div>
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 3.jpeg" alt="Ilustracion 3"><div class="texto">Ilustración 3</div></div>
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 4.jpeg" alt="Ilustracion 4"><div class="texto">Ilustración 4</div></div>
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 5.jpeg" alt="Ilustracion 5"><div class="texto">Ilustración 5</div></div>
-                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 6.jpeg" alt="Ilustracion 6"><div class="texto">Ilustración 6</div></div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 1.jpeg" alt="Ilustracion 1">
+                        <div class="texto">Ilustración 1</div>
+                    </div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 2.jpeg" alt="Ilustracion 2">
+                        <div class="texto">Ilustración 2</div>
+                    </div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 3.jpeg" alt="Ilustracion 3">
+                        <div class="texto">Ilustración 3</div>
+                    </div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 4.jpeg" alt="Ilustracion 4">
+                        <div class="texto">Ilustración 4</div>
+                    </div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 5.jpeg" alt="Ilustracion 5">
+                        <div class="texto">Ilustración 5</div>
+                    </div>
+                    <div class="el_Slide digital animar"><img src="./images/Ilustracion 6.jpeg" alt="Ilustracion 6">
+                        <div class="texto">Ilustración 6</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 5)">❮</a><a class="der" onclick="plusSlides(1, 5)">❯</a>
                 </div>
-                <p class="wow animate__animated animate__fadeInLeft">La ilustración digital amplía las posibilidades creativas y técnicas, permitiéndome explorar nuevas composiciones y lenguajes visuales. Cada pieza nace con la intención de comunicar y conectar, dando vida a ideas que habitan en lo fantástico, lo simbólico o lo cotidiano. Esta práctica no solo muestra resultados, sino también una búsqueda constante por entender cómo el trazo, el color y la técnica pueden convertirse en puentes entre lo que imagino y lo que comparto.</p>
+                <p class="wow animate__animated animate__fadeInLeft">La ilustración digital amplía las posibilidades
+                    creativas y técnicas, permitiéndome explorar nuevas composiciones y lenguajes visuales. Cada pieza
+                    nace con la intención de comunicar y conectar, dando vida a ideas que habitan en lo fantástico, lo
+                    simbólico o lo cotidiano. Esta práctica no solo muestra resultados, sino también una búsqueda
+                    constante por entender cómo el trazo, el color y la técnica pueden convertirse en puentes entre lo
+                    que imagino y lo que comparto.</p>
             </div>
 
             <div class="columna-ilustracion">
                 <div class="contenedor wow animate__animated animate__fadeInRight">
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 7.jpeg" alt="Ilustracion 7"><div class="texto">Ilustración 7</div></div>
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 8.jpeg" alt="Ilustracion 8"><div class="texto">Ilustración 8</div></div>
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 9.jpeg" alt="Ilustracion 9"><div class="texto">Ilustración 9</div></div>
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 10.jpeg" alt="Ilustracion 10"><div class="texto">Ilustración 10</div></div>
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 11.jpeg" alt="Ilustracion 11"><div class="texto">Ilustración 11</div></div>
-                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 12.jpeg" alt="Ilustracion 12"><div class="texto">Ilustración 12</div></div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 7.jpeg" alt="Ilustracion 7">
+                        <div class="texto">Ilustración 7</div>
+                    </div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 8.jpeg" alt="Ilustracion 8">
+                        <div class="texto">Ilustración 8</div>
+                    </div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 9.jpeg" alt="Ilustracion 9">
+                        <div class="texto">Ilustración 9</div>
+                    </div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 10.jpeg" alt="Ilustracion 10">
+                        <div class="texto">Ilustración 10</div>
+                    </div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 11.jpeg" alt="Ilustracion 11">
+                        <div class="texto">Ilustración 11</div>
+                    </div>
+                    <div class="el_Slide analoga animar"><img src="./images/Ilustracion 12.jpeg" alt="Ilustracion 12">
+                        <div class="texto">Ilustración 12</div>
+                    </div>
                     <a class="izq" onclick="plusSlides(-1, 6)">❮</a><a class="der" onclick="plusSlides(1, 6)">❯</a>
                 </div>
-                <p class="wow animate__animated animate__fadeInRight">El trabajo análogo se construye desde el contacto directo con los materiales: papel, lápiz, tinta o color. Cada trazo tiene una temporalidad propia y transmite una textura única que refleja la espontaneidad del proceso. Es un espacio íntimo, donde el error también forma parte del aprendizaje y aporta autenticidad a la expresión.</p>
+                <p class="wow animate__animated animate__fadeInRight">El trabajo análogo se construye desde el contacto
+                    directo con los materiales: papel, lápiz, tinta o color. Cada trazo tiene una temporalidad propia y
+                    transmite una textura única que refleja la espontaneidad del proceso. Es un espacio íntimo, donde el
+                    error también forma parte del aprendizaje y aporta autenticidad a la expresión.</p>
             </div>
         </div>
 
         <h1 class="wow animate__animated animate__fadeInDown" style="margin-top: 120px;">Piezas Graficas</h1>
         <hr class="wow animate__animated animate__fadeInLeft">
 
-        <div class="grid-modelado">
+<div class="grid-modelado">
             <div class="columna-modelado wow animate__animated animate__fadeInLeft">
-                <p>El modelado tridimensional representa para mí una nueva etapa creativa, un espacio donde la técnica se une con la imaginación para dar vida a formas y personajes en un entorno digital. Aunque apenas estoy iniciando este camino, cada intento me permite descubrir las posibilidades que ofrece trabajar en volumen, luz y textura.</p>
-                <img src="./images/Modelado 2.jpeg" alt="Modelado 2" class="foto-modelado">
+                <p>Proyectos gráficos desarrollados con enfoque estratégico y sensibilidad visual. Una de las piezas fue creada para una campaña comunicativa, integrando tipografía y color para transmitir un mensaje claro y atractivo. Otra se diseñó para una empresa, cuidando la coherencia de marca y la funcionalidad en distintos soportes.</p>
+                
+                <div class="contenedor">
+                    <div class="el_Slide modelado1 animar">
+                        <img src="./images/color 1.jpeg" alt="Color 1">
+                        <div class="texto">Modelado 1</div>
+                    </div>
+                    <div class="el_Slide modelado1 animar">
+                        <img src="./images/color 2.jpeg" alt="Color 2">
+                        <div class="texto">Modelado 2</div>
+                    </div>
+                    <div class="el_Slide modelado1 animar">
+                        <img src="./images/color 3.jpeg" alt="Color 3">
+                        <div class="texto">Modelado 3</div>
+                    </div>
+                    <div class="el_Slide modelado1 animar">
+                        <img src="./images/color 4.jpeg" alt="Color 4">
+                        <div class="texto">Modelado 4</div>
+                    </div>
+                    
+                    <a class="izq" onclick="plusSlides(-1, 7)">❮</a>
+                    <a class="der" onclick="plusSlides(1, 7)">❯</a>
+                </div>
+
             </div>
             <div class="columna-modelado wow animate__animated animate__fadeInRight">
-                <img src="./images/Modelado 1.jpeg" alt="Modelado 1" class="foto-modelado">
-                <p>Por ahora, esta sección cuenta con una sola pieza, pero más que un límite, la considero un punto de partida. Es el primer paso de un proceso que irá creciendo con práctica, exploración y aprendizaje constante. Cada render y cada ajuste de cámara se convierten en una oportunidad para perfeccionar mi mirada y expandir mi lenguaje visual hacia nuevas dimensiones.</p>
+                
+                <div class="contenedor">
+                    <div class="el_Slide modelado2 animar">
+                        <img src="./images/apagado 1.jpeg" alt="Apagado 1">
+                        <div class="texto">Modelado 1</div>
+                    </div>
+                    <div class="el_Slide modelado2 animar">
+                        <img src="./images/apagado 2.jpeg" alt="Apagado 2">
+                        <div class="texto">Modelado 2</div>
+                    </div>
+                    <div class="el_Slide modelado2 animar">
+                        <img src="./images/apagado 3.jpeg" alt="Apagado 3">
+                        <div class="texto">Modelado 3</div>
+                    </div>
+                    <div class="el_Slide modelado2 animar">
+                        <img src="./images/apagado 4.jpeg" alt="Apagado 4">
+                        <div class="texto">Modelado 4</div>
+                    </div>
+                    
+                    <a class="izq" onclick="plusSlides(-1, 8)">❮</a>
+                    <a class="der" onclick="plusSlides(1, 8)">❯</a>
+                </div>
+
+                <p>Cada propuesta busca equilibrar estética y comunicación, adaptándose al contexto y a la audiencia, con atención a los detalles técnicos y a la reproducibilidad. El portafolio refleja la capacidad de crear, ajustar e iterar diseños que generan impacto y mantienen la identidad visual.</p>
             </div>
         </div>
     </section>
 
     <footer class="pie-pagina">
         <div class="identidad-pie">
-            <img src="./images/acercade.png" alt="Avatar" class="avatar-pie"> 
+            <img src="./images/acercade.png" alt="Avatar" class="avatar-pie">
             <div class="info-pie">
                 <h4>Nicole Gutiérrez</h4>
                 <span>Diseñadora Gráfica</span>
@@ -539,8 +980,10 @@
         </div>
         <div class="contacto-pie">
             <div class="item-contacto"><span class="material-symbols-outlined">chat</span><span>3132685923</span></div>
-            <div class="item-contacto"><span class="material-symbols-outlined">mail</span><span>niangutis@gmail.com</span></div>
-            <div class="item-contacto"><span class="material-symbols-outlined">location_on</span><span>Bogota D.C</span></div>
+            <div class="item-contacto"><span
+                    class="material-symbols-outlined">mail</span><span>niangutis@gmail.com</span></div>
+            <div class="item-contacto"><span class="material-symbols-outlined">location_on</span><span>Bogota D.C</span>
+            </div>
         </div>
     </footer>
 
@@ -548,21 +991,22 @@
     <script>
         new WOW().init();
 
-        let slideIndex = [1, 1, 1, 1, 1, 1, 1];
-        let slideId = ["modelo", "comida", "fauna", "flora", "editorial", "digital", "analoga"];
+        let slideIndex = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+        let slideId = ["modelo", "comida", "fauna", "flora", "editorial", "digital", "analoga", "modelado1", "modelado2"];
 
-        showSlides(1, 0); showSlides(1, 1); showSlides(1, 2); showSlides(1, 3); showSlides(1, 4); showSlides(1, 5); showSlides(1, 6);
+        showSlides(1, 0); showSlides(1, 1); showSlides(1, 2); showSlides(1, 3); showSlides(1, 4); showSlides(1, 5); showSlides(1, 6); showSlides(1, 7); showSlides(1, 8);
 
         function plusSlides(n, no) { showSlides(slideIndex[no] += n, no); }
 
         function showSlides(n, no) {
-          let i;
-          let slides = document.getElementsByClassName(slideId[no]);
-          if (n > slides.length) {slideIndex[no] = 1}    
-          if (n < 1) {slideIndex[no] = slides.length}
-          for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-          slides[slideIndex[no]-1].style.display = "flex";  
+            let i;
+            let slides = document.getElementsByClassName(slideId[no]);
+            if (n > slides.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = slides.length }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slides[slideIndex[no] - 1].style.display = "flex";
         }
     </script>
 </body>
+
 </html>
