@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es" class="notranslate">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Mí - Nicole Gutiérrez</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Afacad:wght@400;700&family=Alef:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: #121212;
+            font-family: 'Alef', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Aclonica', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .barra-nav {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e1e1e;
+            padding: 5px 10px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .barra-nav a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            font-family: 'Alef', sans-serif;
+        }
+
+        @media (min-width: 993px) {
+            .barra-nav a.activo {
+                background-color: #FF0080;
+                color: white;
+                font-weight: bold;
+                box-shadow: 0 2px 10px rgba(255, 0, 128, 0.4);
+            }
+
+            .barra-nav a:not(.activo):hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+        }
+
+        .seccion-acerca {
+            padding: 140px 5% 40px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .titulo-pagina {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .contenedor-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        .columna-izquierda {
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .columna-centro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .columna-derecha {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .parrafo-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            border-right: 3px solid #FF0080;
+            padding-right: 25px;
+        }
+
+        .contenedor-imagen {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-nicole {
+            width: 100%;
+            height: auto;
+            max-width: 380px;
+            z-index: 10;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        .aro-neon {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 300px;
+            height: 60px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background: transparent;
+            border: 4px solid transparent;
+            border-left-color: #00FFFF;
+            border-right-color: #FF0080;
+            border-top-color: #00FFFF;
+            border-bottom-color: #FF0080;
+            box-shadow: 0 0 20px #00FFFF, 0 0 20px #FF0080;
+            opacity: 0.8;
+        }
+
+        .titulo-seccion-info {
+            font-family: 'Afacad', sans-serif;
+            color: #FF0080;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .titulo-seccion-info:first-child {
+            margin-top: 0;
+        }
+
+        .lista-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .item-info {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #333;
+            transition: 0.3s;
+        }
+
+        .item-info:hover {
+            border-left-color: #00FFFF;
+        }
+
+        .nombre-item {
+            display: block;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .lugar-item {
+            display: block;
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 4px;
+        }
+
+        .fecha-item {
+            display: block;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .descripcion-item {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .pie-pagina {
+            background-color: #0d0d0d;
+            border-top: 4px solid #FF0080;
+            color: white;
+            font-family: 'Alef', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            margin-top: 0;
+        }
+
+        .identidad-pie {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar-pie {
+            width: 70px;
+            height: auto;
+            border-radius: 0;
+            object-fit: contain;
+        }
+
+        .info-pie h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .info-pie span {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        .contacto-pie {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .item-contacto {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .item-contacto .material-symbols-outlined {
+            color: white;
+            font-size: 20px !important;
+        }
+
+        @media (max-width: 992px) {
+            .seccion-acerca {
+                padding: 40px 5% 60px;
+            }
+
+            .contenedor-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .titulo-pagina {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .columna-izquierda {
+                order: 2;
+                text-align: justify;
+                padding-right: 0;
+            }
+
+            .parrafo-bio {
+                border-right: none;
+                border-left: 3px solid #FF0080;
+                padding-right: 0;
+                padding-left: 15px;
+            }
+
+            .columna-centro {
+                order: 1;
+            }
+
+            .img-nicole {
+                max-width: 280px;
+            }
+
+            .aro-neon {
+                width: 220px;
+            }
+
+            .columna-derecha {
+                order: 3;
+                padding-left: 0;
+            }
+
+            .barra-nav {
+                top: auto;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                transform: none;
+                background: #181818;
+                border-radius: 25px 25px 0 0;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding: 15px 0 20px;
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .barra-nav a {
+                flex-direction: column;
+                padding: 0;
+                font-size: 10px;
+                color: #888;
+                flex: 1;
+                background: none !important;
+                box-shadow: none !important;
+            }
+
+            .link-acerca {
+                order: 1;
+            }
+
+            .link-habilidades {
+                order: 2;
+            }
+
+            .link-inicio {
+                order: 3;
+            }
+
+            .link-proyectos {
+                order: 4;
+            }
+
+            .link-contacto {
+                order: 5;
+            }
+
+            .link-inicio .material-symbols-outlined {
+                background: white;
+                color: black !important;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                margin: 0 auto;
+                transform: translateY(-35px);
+                border: 6px solid #121212;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .link-inicio span:not(.material-symbols-outlined) {
+                margin-top: -28px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) {
+                color: #FF0080;
+            }
+
+            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined {
+                color: #FF0080;
+            }
+
+            .barra-nav a:not(.activo) {
+                color: #aaa;
+            }
+
+            .barra-nav a:not(.activo) .material-symbols-outlined {
+                color: white;
+            }
+
+            .pie-pagina {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 15px 3%;
+                padding-bottom: 100px;
+            }
+
+            .identidad-pie {
+                gap: 8px;
+            }
+
+            .avatar-pie {
+                width: 45px;
+            }
+
+            .info-pie h4 {
+                font-size: 0.9rem;
+                margin-bottom: 2px;
+            }
+
+            .info-pie span {
+                font-size: 0.7rem;
+            }
+
+            .contacto-pie {
+                flex-direction: column;
+                gap: 5px;
+                align-items: flex-start;
+            }
+
+            .item-contacto {
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+
+            .item-contacto .material-symbols-outlined {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="barra-nav notranslate">
+        <a href="index.html" class="link-inicio"><span
+                class="material-symbols-outlined">home</span><span>Inicio</span></a>
+        <a href="acerca-de.html" class="activo link-acerca"><span
+                class="material-symbols-outlined">person</span><span>Acerca de mi</span></a>
+        <a href="habilidades.html" class="link-habilidades"><span
+                class="material-symbols-outlined">link</span><span>Habilidades</span></a>
+        <a href="proyectos.html" class="link-proyectos"><span
+                class="material-symbols-outlined">folder_open</span><span>Proyectos</span></a>
+        <a href="contacto.html" class="link-contacto"><span
+                class="material-symbols-outlined">mail</span><span>Contacto</span></a>
+    </nav>
+
+    <section class="seccion-acerca">
+        <h1 class="titulo-pagina wow animate__animated animate__fadeInDown">Acerca de Mí</h1>
+
+        <div class="contenedor-grid">
+
+            <div class="columna-izquierda wow animate__animated animate__fadeInLeft">
+                <p class="parrafo-bio">
+                    Soy estudiante de diseño gráfico con una visión creativa orientada a la innovación y al impacto
+                    visual. Me apasiona aprender y experimentar, transformando ideas en proyectos que transmitan emoción
+                    y autenticidad. Me caracterizo por mi responsabilidad, compromiso y capacidad de trabajar en equipo,
+                    siempre con una actitud positiva frente a nuevos retos. Mi objetivo es aportar soluciones creativas
+                    que generen valor y conecten con las personas.
+                </p>
+            </div>
+
+            <div class="columna-centro wow animate__animated animate__zoomIn">
+                <div class="contenedor-imagen">
+                    <img src="./images/acercade.png" alt="Avatar Nicole" class="img-nicole">
+                    <div class="aro-neon"></div>
+                </div>
+            </div>
+
+            <div class="columna-derecha wow animate__animated animate__fadeInRight">
+
+                <h3 class="titulo-seccion-info">Educación</h3>
+                <ul class="lista-info">
+                    <li class="item-info">
+                        <span class="nombre-item">Diseño Gráfico</span>
+                        <span class="lugar-item">Fundación Universitaria Los Libertadores</span>
+                        <span class="fecha-item">Cursando 6 semestre</span>
+                    </li>
+                    <li class="item-info">
+                        <span class="nombre-item">Bachiller técnico en asistencia administrativa</span>
+                        <span class="lugar-item">Colegio Nuestra Señora de Fátima</span>
+                        <span class="fecha-item">2022</span>
+                    </li>
+                </ul>
+
+                <h3 class="titulo-seccion-info">Experiencia</h3>
+                <ul class="lista-info">
+
+                    <li class="item-info">
+                        <span class="nombre-item">PLACITA MOVIL SAS</span>
+                        <span class="lugar-item">Asistente Contable</span>
+                        <span class="fecha-item">Enero del 2026 - Actualmente</span>
+                        <p class="descripcion-item">Ejecuto la auditoría y validación de precios para asegurar la
+                            precisión financiera y competitividad comercial, gestionando
+                            integralmente los inventarios mediante el control técnico de existencias para optimizar el
+                            flujo de activos. Asimismo, lidero el registro y procesamiento
+                            de información contable básica, garantizando la trazabilidad de las operaciones y el
+                            mantenimiento de la continuidad operativa a través de la actualización
+                            constante de bases de datos y conciliación de reportes administrativos.</p>
+                    </li>
+
+                    <li class="item-info">
+                        <span class="nombre-item">MG SERVICE GROUP SAS</span>
+                        <span class="lugar-item">Asistente</span>
+                        <span class="fecha-item">Febrero del 2024 - Junio 2024</span>
+                        <p class="descripcion-item">Gestión administrativa y comercial, cotizaciones y atención a
+                            clientes. Coordinación con proveedores y diseño publicitario para fortalecer la identidad
+                            visual.</p>
+                    </li>
+
+                    <li class="item-info">
+                        <span class="nombre-item">FERRELECTRICOS Y DISTRIBUCIONES EL DATIL S.A.S</span>
+                        <span class="lugar-item">Auxiliar de Bodega</span>
+                        <span class="fecha-item">Enero del 2023 - Enero 2024</span>
+                        <p class="descripcion-item">Responsable de recepción, organización e inventario en bodega.
+                            Encargada de preparar pedidos y apoyar en carga y descarga, manteniendo un entorno limpio y
+                            seguro.</p>
+                    </li>
+
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="identidad-pie">
+            <img src="./images/acercade.png" alt="Avatar" class="avatar-pie">
+            <div class="info-pie">
+                <h4>Nicole Gutiérrez</h4>
+                <span>Diseñadora Gráfica</span>
+            </div>
+        </div>
+
+        <div class="contacto-pie">
+            <div class="item-contacto">
+                <span class="material-symbols-outlined">chat</span>
+                <span>3132685923</span>
+            </div>
+            <div class="item-contacto">
+                <span class="material-symbols-outlined">mail</span>
+                <span>niangutis@gmail.com</span>
+            </div>
+            <div class="item-contacto">
+                <span class="material-symbols-outlined">location_on</span>
+                <span>Bogota D.C</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
