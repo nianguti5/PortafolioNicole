@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" class="notranslate">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Nicole Gutiérrez</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Afacad:wght@400;700&family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body, html {
+            min-height: 100vh;
+            margin: 0; padding: 0;
+            background-color: #121212;
+            font-family: 'Alef', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 { 
+            font-family: 'Aclonica', sans-serif; 
+            color: white; 
+            margin: 0 0 10px 0; 
+            font-size: 3rem; 
+            text-align: center; 
+            width: 100%;
+        }
+
+        h2 { font-family: 'Aclonica', sans-serif; color: white; margin-bottom: 10px; font-size: 1.4rem; }
+        p { color: white; line-height: 1.5; font-size: 1rem; }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
+        }
+
+        .pie-pagina {
+            background-color: #0d0d0d; 
+            border-top: 4px solid #FF0080;
+            color: white; 
+            font-family: 'Alef', sans-serif;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 30px 10%;
+            margin-top: auto;
+        }
+
+        .identidad-footer { display: flex; align-items: center; gap: 15px; }
+        .avatar-pie { width: 70px; height: auto; border-radius: 0; object-fit: contain; }
+        .info-pie h4 { margin: 0; font-size: 1.2rem; font-weight: bold; }
+        .info-pie span { color: #cccccc; font-size: 0.95rem; }
+
+        .contacto-footer { 
+            display: flex; 
+            flex-direction: row;
+            gap: 40px; 
+        } 
+        .item-footer { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+        .item-footer .material-symbols-outlined { color: white; font-size: 20px !important; }
+
+        .barra-nav {
+            position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+            background: #1e1e1e; padding: 5px 10px; border-radius: 50px;
+            display: flex; align-items: center; gap: 5px; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .barra-nav a {
+            color: #cccccc; text-decoration: none; font-size: 14px;
+            padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 8px; transition: 0.3s;
+            font-family: 'Alef', sans-serif;
+        }
+
+        @media (min-width: 1200px) {
+            .barra-nav a.activo {
+                background-color: #FF0080; color: white; font-weight: bold;
+                box-shadow: 0 2px 10px rgba(255, 0, 128, 0.4);
+            }
+            .barra-nav a:not(.activo):hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+        }
+
+        .seccion-contacto {
+            flex: 1;
+            padding: 140px 5% 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .contenedor-maestro {
+            display: grid;
+            width: 100%;
+            gap: 40px;
+            grid-template-areas: 
+                "titulos titulos titulos"
+                "redes imagen contacto";
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .bloque-titulos-superior { grid-area: titulos; text-align: center; margin-bottom: 40px; }
+        .subtitulo { font-size: 1.1rem; color: #ccc; margin-top: 10px; }
+
+        .col-redes { grid-area: redes; justify-self: start; }
+        .col-imagen { grid-area: imagen; display: flex; justify-content: center; }
+        .col-contacto { grid-area: contacto; justify-self: start; padding-left: 20px; }
+
+        .col-imagen img {
+            width: auto; max-width: 100%; max-height: 45vh; object-fit: contain;
+            filter: drop-shadow(0 0 2px #00FFFF) drop-shadow(0 0 4px #00FFFF);
+        }
+
+        .fila-unificada {
+            display: grid;
+            grid-template-columns: 50px 1fr; 
+            gap: 10px;
+            align-items: center;
+            text-decoration: none;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .caja-icono { display: flex; justify-content: center; align-items: center; }
+        .caja-texto { display: flex; flex-direction: column; text-align: left; }
+        .ic-blanco { color: white !important; font-size: 30px !important; }
+        .txt-rosa { color: #FF0080; font-weight: bold; font-size: 1.1rem; margin-bottom: 2px; }
+        .txt-blanco { color: white; font-size: 1rem; }
+        .wrapper-interno { width: 100%; max-width: 320px; }
+
+
+        @media (max-width: 992px) {
+            
+            
+            .seccion-contacto { padding: 90px 5% 40px; }
+            .contenedor-maestro { gap: 20px; }
+
+            .barra-nav {
+                top: auto; bottom: -2px; left: 0; width: 100%; transform: none;
+                background: #181818; border-radius: 25px 25px 0 0;
+                justify-content: space-around; align-items: flex-end;
+                padding: 10px 0 15px; box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+            }
+            .barra-nav a { flex-direction: column; padding: 0; font-size: 10px; color: #888; flex: 1; background: none !important; box-shadow: none !important; }
+            
+            .link-acerca { order: 1; }
+            .link-habilidades { order: 2; }
+            .link-inicio { order: 3; } 
+            .link-proyectos { order: 4; }
+            .link-contacto { order: 5; }
+
+            .link-inicio .material-symbols-outlined {
+                background: white; color: black !important; width: 55px; height: 55px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center; font-size: 30px;
+                margin: 0 auto; transform: translateY(-35px); border: 6px solid #121212;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+            }
+            .link-inicio span:not(.material-symbols-outlined) { margin-top: -28px; font-weight: bold; color: white; }
+            .barra-nav a.activo:not(.link-inicio) { color: #FF0080; }
+            .barra-nav a.activo:not(.link-inicio) .material-symbols-outlined { color: #FF0080; }
+            .barra-nav a:not(.activo) { color: #aaa; }
+            .barra-nav a:not(.activo) .material-symbols-outlined { color: white; }
+
+            .pie-pagina { 
+                flex-direction: row; 
+                justify-content: space-between;
+                padding: 15px 5% 120px; 
+                align-items: flex-start;
+            }
+            .contacto-footer { 
+                flex-direction: column; 
+                gap: 5px; 
+                align-items: flex-start; 
+                text-align: left;
+            }
+            .item-footer { font-size: 0.8rem; }
+        }
+
+        @media (min-width: 768px) and (max-width: 992px) {
+            .contenedor-maestro {
+                grid-template-areas: 
+                    "titulos titulos"
+                    "imagen redes"
+                    "imagen contacto";
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+            .col-imagen { grid-area: imagen; justify-content: center; }
+            .col-redes { grid-area: redes; padding-top: 20px; }
+            .col-contacto { grid-area: contacto; }
+            .wrapper-interno { width: 100%; max-width: 100%; }
+        }
+
+        @media (max-width: 767px) {
+            .contenedor-maestro { display: flex; flex-direction: column; gap: 25px; }
+            .bloque-titulos-superior { order: 1; margin-bottom: 10px; }
+            .col-imagen { order: 2; width: 100%; text-align: center; margin-bottom: 10px; }
+            .col-imagen img { max-height: 250px; }
+            .col-redes { order: 3; width: 100%; display: flex; flex-direction: column; align-items: center; }
+            .col-contacto { order: 4; width: 100%; display: flex; flex-direction: column; align-items: center; }
+            .wrapper-interno { width: 100%; max-width: 300px; display: flex; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="barra-nav notranslate">
+        <a href="index.html" class="link-inicio"><span class="material-symbols-outlined">home</span><span>Inicio</span></a>
+        <a href="acerca-de.html" class="link-acerca"><span class="material-symbols-outlined">person</span><span>Acerca de mi</span></a>
+        <a href="habilidades.html" class="link-habilidades"><span class="material-symbols-outlined">link</span><span>Habilidades</span></a>
+        <a href="proyectos.html" class="link-proyectos"><span class="material-symbols-outlined">folder_open</span><span>Proyectos</span></a>
+        <a href="#" class="activo link-contacto"><span class="material-symbols-outlined">mail</span><span>Contacto</span></a>
+    </nav>
+
+    <section class="seccion-contacto">
+        <div class="contenedor-maestro">
+            
+            <div class="bloque-titulos-superior wow animate__animated animate__fadeInDown">
+                <h1>¡Hola! ¿Te gustaría que trabajemos juntos?</h1>
+                <p class="subtitulo">Démosle forma a tu marca o proyecto visual con intención, emoción y estrategia.</p>
+            </div>
+
+            <div class="col-redes wow animate__animated animate__fadeInLeft">
+                <div class="wrapper-interno">
+                    <h2>Conecta conmigo en redes</h2>
+                    <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 15px; text-align: left;">Descubre más sobre mi trabajo y acompáñame en este camino creativo</p>
+                    
+                    <a href="https://facebook.com" target="_blank" class="fila-unificada">
+                        <div class="caja-icono"><span class="material-symbols-outlined ic-blanco">public</span></div>
+                        <div class="caja-texto"><span class="txt-rosa">Facebook</span><span class="txt-blanco">Nicole Gutierrez</span></div>
+                    </a>
+
+                    <a href="https://instagram.com/nicoletta.guti" target="_blank" class="fila-unificada">
+                        <div class="caja-icono"><span class="material-symbols-outlined ic-blanco">photo_camera</span></div>
+                        <div class="caja-texto"><span class="txt-rosa">Instagram</span><span class="txt-blanco">nicoletta.guti</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-imagen wow animate__animated animate__fadeInUp">
+                <img src="./images/Contacto.png" alt="Nicole Contacto">
+            </div>
+
+            <div class="col-contacto wow animate__animated animate__fadeInRight">
+                <div class="wrapper-interno">
+                    <div class="fila-unificada">
+                        <div class="caja-icono"><span class="material-symbols-outlined ic-blanco">chat</span></div>
+                        <div class="caja-texto"><span class="txt-blanco">3132685923</span></div>
+                    </div>
+                    <div class="fila-unificada">
+                        <div class="caja-icono"><span class="material-symbols-outlined ic-blanco">mail</span></div>
+                        <div class="caja-texto"><span class="txt-blanco">niangutis@gmail.com</span></div>
+                    </div>
+                    <div class="fila-unificada">
+                        <div class="caja-icono"><span class="material-symbols-outlined ic-blanco">location_on</span></div>
+                        <div class="caja-texto"><span class="txt-blanco">Bogota D.C</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="identidad-footer">
+            <img src="./images/acercade.png" alt="Avatar" class="avatar-pie">
+            <div class="info-pie">
+                <h4 style="margin:0; font-size:1rem;">Nicole Gutiérrez</h4>
+                <span style="font-size:0.8rem; color:#ccc;">Diseñadora Gráfica</span>
+            </div>
+        </div>
+        <div class="contacto-footer">
+            <div class="item-footer"><span class="material-symbols-outlined" style="font-size:18px;">chat</span> 3132685923</div>
+            <div class="item-footer"><span class="material-symbols-outlined" style="font-size:18px;">mail</span> niangutis@gmail.com</div>
+            <div class="item-footer"><span class="material-symbols-outlined" style="font-size:18px;">location_on</span> Bogota D.C</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>new WOW().init();</script>
+</body>
+</html>
