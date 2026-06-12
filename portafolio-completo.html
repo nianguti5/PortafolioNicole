@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Nicole Gutiérrez</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Afacad:wght@400;700&family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #121212;
+            color: white;
+            font-family: 'Alef', sans-serif;
+        }
+
+        h1, h2 { font-family: 'Aclonica', sans-serif; }
+        h3 { font-family: 'Afacad', sans-serif; color: #FF0080; font-weight: 700; }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Barra superior (no entra al PDF) ── */
+        .barra-descarga {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: #1e1e1e;
+            border-bottom: 3px solid #FF0080;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 28px;
+            z-index: 9999;
+        }
+
+        .barra-info { color: #ccc; font-size: 0.88rem; }
+        .barra-info strong { color: #FF0080; }
+        .acciones { display: flex; gap: 10px; }
+
+        .btn-pdf {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #FF0080; color: white; border: none;
+            padding: 9px 20px; border-radius: 10px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            font-family: 'Alef', sans-serif; transition: 0.2s;
+        }
+        .btn-pdf:hover:not(:disabled) { background: #cc0066; }
+        .btn-pdf:disabled { opacity: 0.65; cursor: wait; }
+        .btn-pdf .material-symbols-outlined { font-size: 18px !important; }
+
+        .btn-volver {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: transparent; color: #ccc;
+            border: 1px solid #444; padding: 9px 16px;
+            border-radius: 10px; font-size: 13px; cursor: pointer;
+            text-decoration: none; font-family: 'Alef', sans-serif; transition: 0.2s;
+        }
+        .btn-volver:hover { border-color: #FF0080; color: white; }
+        .btn-volver .material-symbols-outlined { font-size: 16px !important; }
+
+        /* ── Contenedor PDF ── */
+        #portafolio {
+            margin-top: 56px;
+            background: #121212;
+        }
+
+        /* ── Secciones generales ── */
+        .seccion {
+            padding: 48px 7%;
+            background: #121212;
+        }
+
+        /* Salto de página forzado — html2pdf lo respeta */
+        .nueva-pagina {
+            page-break-before: always;
+        }
+
+        /* Sección que ocupa una hoja A4 con el contenido centrado verticalmente.
+           Se usa un poco menos de 297mm para que no se desborde a una hoja extra. */
+        .pagina-centrada {
+            min-height: 275mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .titulo-sec {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .linea {
+            height: 3px;
+            background: linear-gradient(to right, #FF0080, transparent);
+            border: none;
+            margin-bottom: 32px;
+        }
+
+        /* ── PORTADA ── */
+        .portada {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+            min-height: 290mm;
+            background: linear-gradient(160deg, #1a0a12 0%, #121212 55%, #0a1518 100%);
+            padding: 60px 7%;
+        }
+
+        .portada h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 14px; }
+        .portada-sub {
+            font-family: 'Afacad', sans-serif;
+            color: #FF0080; font-size: 1.4rem; font-weight: 700; margin-bottom: 24px;
+        }
+        .portada p { color: #bbb; line-height: 1.75; font-size: 0.94rem; max-width: 540px; }
+
+        .portada-foto {
+            width: 240px; height: 240px;
+            object-fit: cover; border-radius: 32px;
+            border: 3px solid #00FFFF;
+            box-shadow: 0 0 24px rgba(0,255,255,0.3);
+        }
+
+        /* ── ACERCA DE ── */
+        .grid-acerca {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .col-bio {
+            border-right: 3px solid #FF0080;
+            padding-right: 24px;
+        }
+        .col-bio p { color: #ddd; line-height: 1.8; font-size: 0.91rem; }
+
+        .foto-acerca { width: 110px; height: auto; }
+
+        .lista-cv { list-style: none; padding: 0; }
+        .lista-cv li {
+            border-left: 2px solid #444;
+            padding-left: 14px;
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+
+        .cv-nom { display: block; font-weight: bold; color: white; font-size: 0.92rem; margin-bottom: 2px; }
+        .cv-lug { display: block; font-size: 0.83rem; color: #ccc; margin-bottom: 2px; }
+        .cv-fec { display: block; font-size: 0.73rem; color: #888; margin-bottom: 5px; text-transform: uppercase; }
+        .cv-des { font-size: 0.8rem; color: #aaa; line-height: 1.4; }
+
+        /* ── HABILIDADES ── */
+        .grid-habs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .tarjeta-hab {
+            display: flex; gap: 14px; align-items: center;
+            flex-direction: column; text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .icono-hab { width: 70px; height: 70px; object-fit: contain; border-radius: 11px; flex-shrink: 0; }
+        .tarjeta-hab h3 { font-size: 1.05rem; margin-bottom: 5px; }
+        .tarjeta-hab p { color: #bbb; font-size: 0.87rem; line-height: 1.5; }
+
+        /* ── PROYECTOS: categorías ── */
+        .cat-titulo {
+            font-family: 'Afacad', sans-serif;
+            color: #00FFFF; font-size: 0.95rem; font-weight: 700;
+            margin: 18px 0 9px;
+        }
+
+        .texto-proy { color: #bbb; font-size: 0.87rem; line-height: 1.6; margin-bottom: 18px; }
+
+        .grid-img { display: grid; gap: 7px; }
+        .g4 { grid-template-columns: repeat(4,1fr); }
+        .g5 { grid-template-columns: repeat(5,1fr); }
+        .g3 { grid-template-columns: repeat(3,1fr); }
+        .g2 { grid-template-columns: repeat(2,1fr); }
+
+        .foto-sq {
+            width: 100%; aspect-ratio: 1;
+            object-fit: cover; border-radius: 7px; display: block;
+        }
+        .foto-wide {
+            width: 100%; aspect-ratio: 16/9;
+            object-fit: cover; border-radius: 7px; display: block;
+        }
+
+        .dos-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        /* ── CONTACTO ── */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .contacto-titulo { font-size: 1.5rem; margin-bottom: 8px; }
+        .contacto-sub { color: #ccc; font-size: 0.88rem; margin-bottom: 22px; }
+
+        .foto-contacto {
+            width: 190px; height: auto;
+            filter: drop-shadow(0 0 8px #00FFFF);
+        }
+
+        .fila-c {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 16px; text-decoration: none;
+            justify-content: center;
+        }
+        .ic-c { font-size: 24px !important; color: white; }
+        .lbl-rosa { color: #FF0080; font-weight: bold; font-size: 0.92rem; display: block; text-align: left; }
+        .lbl-blanco { color: white; font-size: 0.88rem; display: block; text-align: left; }
+
+        .contacto-grid > div { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .contacto-titulo { text-align: center; }
+        .contacto-sub { text-align: center; }
+
+        /* ── PÁGINA FINAL (contacto + footer sin fondo blanco) ── */
+        .pagina-final {
+            background: #121212;
+            min-height: 297mm;
+            display: flex;
+            flex-direction: column;
+        }
+        .pagina-final .seccion {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ── FOOTER ── */
+        .pie {
+            background: #0d0d0d;
+            border-top: 4px solid #FF0080;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            page-break-inside: avoid;
+        }
+
+        .pie-id { display: flex; align-items: center; gap: 11px; }
+        .pie-avatar { width: 48px; height: auto; }
+        .pie-nom { font-weight: bold; font-size: 0.92rem; color: white; }
+        .pie-rol { color: #ccc; font-size: 0.8rem; }
+
+        .pie-datos { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+        .pie-dato { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #ccc; }
+        .pie-dato .material-symbols-outlined { font-size: 14px !important; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de descarga — NO entra al PDF -->
+    <div class="barra-descarga">
+        <span class="barra-info">Portafolio de <strong>Nicole Gutiérrez</strong></span>
+        <div class="acciones">
+            <a href="index.html" class="btn-volver">
+                <span class="material-symbols-outlined">arrow_back</span> Volver
+            </a>
+            <button id="btn-descargar" class="btn-pdf" onclick="descargarPDF()">
+                <span class="material-symbols-outlined">download</span> Descargar PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--   CONTENIDO DEL PORTAFOLIO (entra al PDF)  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="portafolio">
+
+        <!-- 1. PORTADA -->
+        <section class="portada">
+            <div>
+                <h1>Hola, soy Nicole</h1>
+                <div class="portada-sub">Diseñadora Gráfica</div>
+                <p>
+                    Bienvenida a mi espacio creativo. Soy estudiante de diseño gráfico y aquí comparto mi manera de entender el diseño como un puente entre las ideas y las emociones. Cada proyecto nace de la curiosidad y del deseo de experimentar con nuevas formas de expresión, buscando que lo visual se convierta en una experiencia que conecte con las personas.
+                    <br><br>
+                    El diseño, para mí, es más que estética: es comunicación, es narrativa y es impacto. Me apasiona explorar cómo los colores, las formas y las tipografías pueden transformar un mensaje en algo memorable.
+                </p>
+            </div>
+            <img src="./images/nicole.jpeg" alt="Nicole" class="portada-foto">
+        </section>
+
+        <!-- 2. ACERCA DE MÍ -->
+        <section class="seccion nueva-pagina">
+            <h1 class="titulo-sec">Acerca de Mí</h1>
+            <hr class="linea">
+            <div class="grid-acerca">
+                <div class="col-bio">
+                    <p>Soy estudiante de diseño gráfico con una visión creativa orientada a la innovación y al impacto visual. Me apasiona aprender y experimentar, transformando ideas en proyectos que transmitan emoción y autenticidad. Me caracterizo por mi responsabilidad, compromiso y capacidad de trabajar en equipo, siempre con una actitud positiva frente a nuevos retos. Mi objetivo es aportar soluciones creativas que generen valor y conecten con las personas.</p>
+                </div>
+
+                <img src="./images/acercade.png" alt="Nicole avatar" class="foto-acerca">
+
+                <div>
+                    <h3 style="font-size:0.95rem; margin-bottom:11px;">Educación</h3>
+                    <ul class="lista-cv">
+                        <li>
+                            <span class="cv-nom">Diseño Gráfico</span>
+                            <span class="cv-lug">Fundación Universitaria Los Libertadores</span>
+                            <span class="cv-fec">Cursando 8 semestre</span>
+                        </li>
+                        <li>
+                            <span class="cv-nom">Bachiller técnico en asistencia administrativa</span>
+                            <span class="cv-lug">Colegio Nuestra Señora de Fátima</span>
+                            <span class="cv-fec">2022</span>
+                        </li>
+                    </ul>
+
+                    <h3 style="font-size:0.95rem; margin-top:18px; margin-bottom:11px;">Experiencia</h3>
+                    <ul class="lista-cv">
+                        <li>
+                            <span class="cv-nom">PLACITA MOVIL SAS</span>
+                            <span class="cv-lug">Asistente Contable</span>
+                            <span class="cv-fec">Enero 2026 – Actualmente</span>
+                            <p class="cv-des">Auditoría y validación de precios, gestión de inventarios, registro contable y conciliación de reportes administrativos.</p>
+                        </li>
+                        <li>
+                            <span class="cv-nom">MG SERVICE GROUP SAS</span>
+                            <span class="cv-lug">Asistente</span>
+                            <span class="cv-fec">Febrero 2024 – Junio 2024</span>
+                            <p class="cv-des">Gestión administrativa y comercial, cotizaciones, atención a clientes y diseño publicitario.</p>
+                        </li>
+                        <li>
+                            <span class="cv-nom">FERRELECTRICOS Y DISTRIBUCIONES EL DATIL S.A.S</span>
+                            <span class="cv-lug">Auxiliar de Bodega</span>
+                            <span class="cv-fec">Enero 2023 – Enero 2024</span>
+                            <p class="cv-des">Recepción, organización e inventario en bodega, preparación de pedidos.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. HABILIDADES -->
+        <section class="seccion nueva-pagina pagina-centrada">
+            <h1 class="titulo-sec">Habilidades Creativas</h1>
+            <hr class="linea">
+            <div class="grid-habs">
+                <div class="tarjeta-hab">
+                    <img src="./images/illustrator.png" alt="Adobe Illustrator" class="icono-hab">
+                    <div>
+                        <h3>Adobe Illustrator</h3>
+                        <p>Me ha permitido dar precisión y claridad a mis diseños, creando logotipos y composiciones que reflejan identidad.</p>
+                    </div>
+                </div>
+                <div class="tarjeta-hab">
+                    <img src="./images/photoshop.png" alt="Adobe Photoshop" class="icono-hab">
+                    <div>
+                        <h3>Adobe Photoshop</h3>
+                        <p>Me ha ayudado a potenciar mis proyectos, explorando la edición y retoque de imágenes para composiciones más expresivas.</p>
+                    </div>
+                </div>
+                <div class="tarjeta-hab">
+                    <img src="./images/capcut.png" alt="Edición de videos" class="icono-hab">
+                    <div>
+                        <h3>Edición de Videos</h3>
+                        <p>Me ha brindado la oportunidad de contar historias dinámicas y generar contenidos que conectan mejor con las personas.</p>
+                    </div>
+                </div>
+                <div class="tarjeta-hab">
+                    <img src="./images/canva.png" alt="Canva" class="icono-hab">
+                    <div>
+                        <h3>Canva</h3>
+                        <p>Me ha impulsado a crear piezas gráficas de forma ágil y versátil, ampliando mis recursos visuales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FOTOGRAFÍA (espacios reducidos para que Modelo + Gastronomía quepan justo en una hoja) -->
+        <section class="seccion nueva-pagina" style="padding-top:28px; padding-bottom:20px;">
+            <h1 class="titulo-sec">Fotografía</h1>
+            <hr class="linea" style="margin-bottom:18px;">
+            <p class="texto-proy" style="margin-bottom:12px;">La fotografía es para mí una manera de detener el tiempo y darle voz a los detalles que muchas veces pasan desapercibidos. Cada imagen es una oportunidad de narrar una historia y transmitir emociones que conecten con quienes la observan.</p>
+
+            <div class="cat-titulo" style="margin:10px 0 8px;">Modelo</div>
+            <div class="grid-img g4">
+                <img src="./images/Modelo 1.jpeg" alt="Modelo 1" class="foto-sq">
+                <img src="./images/Modelo 2.jpeg" alt="Modelo 2" class="foto-sq">
+                <img src="./images/Modelo 3.jpeg" alt="Modelo 3" class="foto-sq">
+                <img src="./images/Modelo 4.jpeg" alt="Modelo 4" class="foto-sq">
+                <img src="./images/Modelo 5.jpeg" alt="Modelo 5" class="foto-sq">
+                <img src="./images/Modelo 6.jpeg" alt="Modelo 6" class="foto-sq">
+                <img src="./images/Modelo 7.jpeg" alt="Modelo 7" class="foto-sq">
+            </div>
+
+            <div class="cat-titulo" style="margin:12px 0 8px;">Gastronomía</div>
+            <div class="grid-img g3">
+                <img src="./images/Gastronomia 1.jpeg" alt="Gastronomía 1" class="foto-sq">
+                <img src="./images/Gastronomia 2.jpeg" alt="Gastronomía 2" class="foto-sq">
+                <img src="./images/Gastronomia 3.jpeg" alt="Gastronomía 3" class="foto-sq">
+                <img src="./images/Gastronomia 4.jpeg" alt="Gastronomía 4" class="foto-sq">
+                <img src="./images/Gastronomia 5.jpeg" alt="Gastronomía 5" class="foto-sq">
+            </div>
+        </section>
+
+        <!-- 4b. FOTOGRAFÍA (continuación: Fauna y Flora en página aparte) -->
+        <section class="seccion nueva-pagina">
+            <div class="cat-titulo" style="margin-top:0;">Fauna</div>
+            <div class="grid-img g3">
+                <img src="./images/Fauna 1.jpeg" alt="Fauna 1" class="foto-sq">
+                <img src="./images/Fauna 2.jpeg" alt="Fauna 2" class="foto-sq">
+                <img src="./images/Fauna 3.jpeg" alt="Fauna 3" class="foto-sq">
+                <img src="./images/Fauna 4.jpeg" alt="Fauna 4" class="foto-sq">
+                <img src="./images/Fauna 5.jpeg" alt="Fauna 5" class="foto-sq">
+            </div>
+
+            <div class="cat-titulo">Flora</div>
+            <div class="grid-img g3">
+                <img src="./images/Flora 1.jpeg" alt="Flora 1" class="foto-sq">
+                <img src="./images/Flora 2.jpeg" alt="Flora 2" class="foto-sq">
+                <img src="./images/Flora 3.jpeg" alt="Flora 3" class="foto-sq">
+                <img src="./images/Flora 4.jpeg" alt="Flora 4" class="foto-sq">
+                <img src="./images/Flora 5.jpeg" alt="Flora 5" class="foto-sq">
+            </div>
+        </section>
+
+        <!-- 5. EDITORIAL -->
+        <section class="seccion nueva-pagina">
+            <h1 class="titulo-sec">Editorial</h1>
+            <hr class="linea">
+            <div class="dos-col" style="margin-bottom: 22px;">
+                <p class="texto-proy" style="margin:0;">Piezas editoriales que exploran el universo visual y narrativo detrás de Billie Eilish. Cada portada ha sido diseñada con intención, cuidando la estética y el mensaje que acompaña al contenido del libro.</p>
+                <p class="texto-proy" style="margin:0;">El trabajo editorial busca dialogar con la sensibilidad de Billie: su fuerza creativa, su vulnerabilidad convertida en arte y su capacidad de conectar con millones a través de una voz auténtica.</p>
+            </div>
+            <div class="grid-img g3">
+                <img src="./images/Editorial 1.jpeg" alt="Editorial 1" class="foto-wide">
+                <img src="./images/Editorial 2.jpeg" alt="Editorial 2" class="foto-wide">
+                <img src="./images/Editorial 3.jpeg" alt="Editorial 3" class="foto-wide">
+            </div>
+
+            <!-- Ilustración — misma página que Editorial -->
+            <h1 class="titulo-sec" style="margin-top:110px;">Ilustración</h1>
+            <hr class="linea">
+            <div class="dos-col">
+                <div>
+                    <div class="cat-titulo" style="margin-top:0;">Digital</div>
+                    <p class="texto-proy">La ilustración digital amplía las posibilidades creativas, explorando nuevas composiciones y lenguajes visuales. Cada pieza nace con la intención de comunicar y conectar.</p>
+                    <div class="grid-img g3">
+                        <img src="./images/Ilustracion 1.jpeg" alt="Ilustración 1" class="foto-sq">
+                        <img src="./images/Ilustracion 2.jpeg" alt="Ilustración 2" class="foto-sq">
+                        <img src="./images/Ilustracion 3.jpeg" alt="Ilustración 3" class="foto-sq">
+                        <img src="./images/Ilustracion 4.jpeg" alt="Ilustración 4" class="foto-sq">
+                        <img src="./images/Ilustracion 5.jpeg" alt="Ilustración 5" class="foto-sq">
+                        <img src="./images/Ilustracion 6.jpeg" alt="Ilustración 6" class="foto-sq">
+                    </div>
+                </div>
+                <div>
+                    <div class="cat-titulo" style="margin-top:0;">Análoga</div>
+                    <p class="texto-proy">El trabajo análogo se construye desde el contacto directo con los materiales. Cada trazo transmite una textura única que refleja la espontaneidad del proceso.</p>
+                    <div class="grid-img g3">
+                        <img src="./images/Ilustracion 7.jpeg" alt="Ilustración 7" class="foto-sq">
+                        <img src="./images/Ilustracion 8.jpeg" alt="Ilustración 8" class="foto-sq">
+                        <img src="./images/Ilustracion 9.jpeg" alt="Ilustración 9" class="foto-sq">
+                        <img src="./images/Ilustracion 10.jpeg" alt="Ilustración 10" class="foto-sq">
+                        <img src="./images/Ilustracion 11.jpeg" alt="Ilustración 11" class="foto-sq">
+                        <img src="./images/Ilustracion 12.jpeg" alt="Ilustración 12" class="foto-sq">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PIEZAS GRÁFICAS -->
+        <section class="seccion nueva-pagina">
+            <h1 class="titulo-sec">Piezas Gráficas</h1>
+            <hr class="linea">
+            <p class="texto-proy">Proyectos gráficos desarrollados con enfoque estratégico y sensibilidad visual, equilibrando estética y comunicación para distintos soportes.</p>
+            <div class="dos-col">
+                <div>
+                    <div class="cat-titulo" style="margin-top:0;">Serie Color</div>
+                    <div class="grid-img g2">
+                        <img src="./images/color 1.jpeg" alt="Color 1" class="foto-sq">
+                        <img src="./images/color 2.jpeg" alt="Color 2" class="foto-sq">
+                        <img src="./images/color 3.jpeg" alt="Color 3" class="foto-sq">
+                        <img src="./images/color 4.jpeg" alt="Color 4" class="foto-sq">
+                    </div>
+                </div>
+                <div>
+                    <div class="cat-titulo" style="margin-top:0;">Serie Apagado</div>
+                    <div class="grid-img g2">
+                        <img src="./images/apagado 1.jpeg" alt="Apagado 1" class="foto-sq">
+                        <img src="./images/apagado 2.jpeg" alt="Apagado 2" class="foto-sq">
+                        <img src="./images/apagado 3.jpeg" alt="Apagado 3" class="foto-sq">
+                        <img src="./images/apagado 4.jpeg" alt="Apagado 4" class="foto-sq">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CONTACTO + FOOTER (wrapper asegura fondo oscuro hasta el final de la página) -->
+        <div class="pagina-final nueva-pagina">
+            <section class="seccion">
+                <h1 class="titulo-sec">Contacto</h1>
+                <hr class="linea">
+                <div class="contacto-grid">
+                    <div>
+                        <h2 class="contacto-titulo">¿Te gustaría que trabajemos juntos?</h2>
+                        <p class="contacto-sub">Démosle forma a tu marca o proyecto visual con intención, emoción y estrategia.</p>
+
+                        <h3 style="font-size:0.95rem; margin-bottom:14px;">Conecta conmigo en redes</h3>
+
+                        <a href="https://facebook.com" class="fila-c">
+                            <span class="material-symbols-outlined ic-c">public</span>
+                            <div>
+                                <span class="lbl-rosa">Facebook</span>
+                                <span class="lbl-blanco">Nicole Gutierrez</span>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/nicoletta.guti" class="fila-c">
+                            <span class="material-symbols-outlined ic-c">photo_camera</span>
+                            <div>
+                                <span class="lbl-rosa">Instagram</span>
+                                <span class="lbl-blanco">nicoletta.guti</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <img src="./images/Contacto.png" alt="Nicole Contacto" class="foto-contacto">
+
+                    <div>
+                        <h3 style="font-size:0.95rem; margin-bottom:14px;">Información de contacto</h3>
+                        <div class="fila-c">
+                            <span class="material-symbols-outlined ic-c">chat</span>
+                            <div><span class="lbl-blanco">3132685923</span></div>
+                        </div>
+                        <div class="fila-c">
+                            <span class="material-symbols-outlined ic-c">mail</span>
+                            <div><span class="lbl-blanco">niangutis@gmail.com</span></div>
+                        </div>
+                        <div class="fila-c">
+                            <span class="material-symbols-outlined ic-c">location_on</span>
+                            <div><span class="lbl-blanco">Bogotá D.C.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="pie">
+                <div class="pie-id">
+                    <img src="./images/acercade.png" alt="Avatar" class="pie-avatar">
+                    <div>
+                        <div class="pie-nom">Nicole Gutiérrez</div>
+                        <div class="pie-rol">Diseñadora Gráfica</div>
+                    </div>
+                </div>
+                <div class="pie-datos">
+                    <div class="pie-dato"><span class="material-symbols-outlined">chat</span> 3132685923</div>
+                    <div class="pie-dato"><span class="material-symbols-outlined">mail</span> niangutis@gmail.com</div>
+                    <div class="pie-dato"><span class="material-symbols-outlined">location_on</span> Bogotá D.C.</div>
+                </div>
+            </footer>
+        </div>
+
+    </div><!-- /portafolio -->
+
+    <!-- html2pdf.js — genera descarga directa sin diálogo de impresión -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        async function descargarPDF() {
+            const btn = document.getElementById('btn-descargar');
+            btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Generando PDF...';
+            btn.disabled = true;
+
+            // Esperar fuentes
+            await document.fonts.ready;
+
+            const elemento = document.getElementById('portafolio');
+
+            // Quitar margen-top temporal para que no entre espacio en blanco al PDF
+            const marginOriginal = elemento.style.marginTop;
+            elemento.style.marginTop = '0';
+
+            const opciones = {
+                margin:   0,
+                filename: 'Portafolio-Nicole-Gutierrez.pdf',
+                image:    { type: 'jpeg', quality: 0.92 },
+                html2canvas: {
+                    scale:           1.5,
+                    useCORS:         true,
+                    allowTaint:      true,
+                    backgroundColor: '#121212',
+                    logging:         false
+                },
+                jsPDF:     { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'], before: '.nueva-pagina' }
+            };
+
+            try {
+                await html2pdf().set(opciones).from(elemento).save();
+            } catch (e) {
+                alert('Hubo un error generando el PDF. Intenta de nuevo.');
+                console.error(e);
+            }
+
+            // Restaurar margen
+            elemento.style.marginTop = marginOriginal;
+
+            btn.innerHTML = '<span class="material-symbols-outlined">download</span> Descargar PDF';
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
